@@ -2,7 +2,7 @@ import React from "react";
 import Head from "next/head";
 import { useColorMode, Button, Flex, Box } from "@chakra-ui/react";
 // import Navbar from "./Navbar";
-// import Footer from "./Footer";
+import Footer from "./Footer";
 
 const Layout = ({ children }) => {
   const { colorMode } = useColorMode();
@@ -40,7 +40,7 @@ const Layout = ({ children }) => {
         {children}
       </Flex>
       <footer>
-        {/* <Footer bg={bgColor[colorMode]} textColor={color[colorMode]} /> */}
+        <Footer bg={bgColor[colorMode]} textColor={color[colorMode]} />
       </footer>
     </>
   );
