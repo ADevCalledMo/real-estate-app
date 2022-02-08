@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import { useColorMode, Button, Flex, Box } from "@chakra-ui/react";
-// import Navbar from "./Navbar";
+import Navbar from "./Navbar";
 import Footer from "./Footer";
 
 const Layout = ({ children }) => {
@@ -15,9 +15,10 @@ const Layout = ({ children }) => {
     light: "gray.600",
     dark: "gray.300",
   };
+
   const color = {
     light: "black",
-    black: "white",
+    dark: "white",
   };
 
   return (
@@ -27,7 +28,7 @@ const Layout = ({ children }) => {
       </Head>
       <Box maxWidth="1280px" m="auto">
         <header>
-          {/* <Navbar bg={bgColor[colorMode]} textColor={color[colorMode]} /> */}
+          <Navbar bg={bgColor[colorMode]} textColor={color[colorMode]} />
         </header>
       </Box>
       <Flex
