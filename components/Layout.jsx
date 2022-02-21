@@ -30,19 +30,21 @@ const Layout = ({ children }) => {
         <header>
           <Navbar bg={bgColor[colorMode]} textColor={color[colorMode]} />
         </header>
+        <main>
+          <Flex
+            as="main"
+            justifyContent="center"
+            flexDirection="column"
+            bg={bgColor[colorMode]}
+            color={color[colorMode]}
+          >
+            {children}
+          </Flex>
+        </main>
+        <footer>
+          <Footer bg={bgColor[colorMode]} textColor={color[colorMode]} />
+        </footer>
       </Box>
-      <Flex
-        as="main"
-        justifyContent="center"
-        flexDirection="column"
-        bg={bgColor[colorMode]}
-        color={color[colorMode]}
-      >
-        {children}
-      </Flex>
-      <footer>
-        <Footer bg={bgColor[colorMode]} textColor={color[colorMode]} />
-      </footer>
     </>
   );
 };
