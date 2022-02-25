@@ -6,6 +6,8 @@ import Layout from "../components/Layout";
 import Banner from "../components/Banner";
 
 export default function Home() {
+
+  
   return (
     <Layout>
       <Box>
@@ -19,8 +21,8 @@ export default function Home() {
           linkName="/search?purpose=for-rent"
           imageUrl="https://bayut-production.s3.eu-central-1.amazonaws.com/image/145426814/33973352624c48628e41f2ec460faba4"
         />
-        <Flex flexWrap="wrap">
-          <Text> Properties for rent go here! </Text>
+        <Flex flexWrap="wrap" justifyContent="center" alignItems="center">
+          <Text fontSize="3xl"> Properties for rent go here! </Text>
         </Flex>
         <Banner
           purpose="BUY A HOME"
@@ -32,8 +34,8 @@ export default function Home() {
           linkName="/search?purpose=for-sale"
           imageUrl="https://bayut-production.s3.eu-central-1.amazonaws.com/image/145426814/33973352624c48628e41f2ec460faba4"
         />
-        <Flex flexWrap="wrap">
-          <Text> Properties for sale go here! </Text>
+        <Flex flexWrap="wrap" justifyContent="center" alignItems="center">
+          <Text fontSize="3xl"> Properties for sale go here! </Text>
         </Flex>
       </Box>
     </Layout>
