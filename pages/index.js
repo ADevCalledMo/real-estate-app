@@ -5,9 +5,13 @@ import { Box, Flex, Text, Button } from "@chakra-ui/react";
 import Layout from "../components/Layout";
 import Banner from "../components/Banner";
 
-export default function Home() {
+import { baseUrl, fetchApi } from "../utils/fetchApi";
 
-  
+export default function Home() {
+  // console.log("For Sale --->", propertiesForSale);
+  // console.log("For Rent --->", propertiesForRent);
+  // propertiesForSale, propertiesForRent
+
   return (
     <Layout>
       <Box>
@@ -40,4 +44,20 @@ export default function Home() {
       </Box>
     </Layout>
   );
+}
+
+export async function getStaticProps() {
+  const propertyForSale = fetchApi(
+    `${baseUrl}/properties/list?locationExternalIDs=5002&purpose=for-sale&hitsPerPage=6`
+  );
+  const propertyForRent = fetchApi(
+    `${baseUrl}/properties/list?locationExternalIDs=5002&purpose=for-rent&hitsPerPage=6`
+  );
+
+  return {
+    props: {
+      propertiesForSale: propertyForSale?.hits,
+      propertiesForRent: propertyForRent?.hits,
+    },
+  }
 }
