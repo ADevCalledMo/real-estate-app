@@ -8,10 +8,6 @@ import Banner from "../components/Banner";
 import { baseUrl, fetchApi } from "../utils/fetchApi";
 
 export default function Home() {
-  // console.log("For Sale --->", propertiesForSale);
-  // console.log("For Rent --->", propertiesForRent);
-  // propertiesForSale, propertiesForRent
-
   return (
     <Layout>
       <Box>
@@ -47,10 +43,10 @@ export default function Home() {
 }
 
 export async function getStaticProps() {
-  const propertyForSale = fetchApi(
+  const propertyForSale = await fetchApi(
     `${baseUrl}/properties/list?locationExternalIDs=5002&purpose=for-sale&hitsPerPage=6`
   );
-  const propertyForRent = fetchApi(
+  const propertyForRent = await fetchApi(
     `${baseUrl}/properties/list?locationExternalIDs=5002&purpose=for-rent&hitsPerPage=6`
   );
 
@@ -59,5 +55,5 @@ export async function getStaticProps() {
       propertiesForSale: propertyForSale?.hits,
       propertiesForRent: propertyForRent?.hits,
     },
-  }
+  };
 }
