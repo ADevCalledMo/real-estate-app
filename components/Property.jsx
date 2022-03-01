@@ -21,7 +21,24 @@ const Property = ({
   },
 }) => (
   <Link href={`/property/${externalID}`} passHref>
-    {title}
+    <Flex
+      flexWrap="wrap"
+      w="420px"
+      p="5"
+      paddingTop="0px"
+      justifyContent="flex-start"
+      cursor="pointer"
+    >
+      <Box>
+        <Image
+          src={coverPhoto ? coverPhoto.url : DefaultImage}
+          width={400}
+          height={260}
+          alt="property"
+        />
+      </Box>
+      {/* <Box></Box> */}
+    </Flex>
   </Link>
 );
 
