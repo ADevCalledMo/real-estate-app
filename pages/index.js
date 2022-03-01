@@ -4,10 +4,14 @@ import { Box, Flex, Text, Button } from "@chakra-ui/react";
 
 import Layout from "../components/Layout";
 import Banner from "../components/Banner";
+import Property from "../components/Property";
 
 import { baseUrl, fetchApi } from "../utils/fetchApi";
 
-export default function Home() {
+export default function Home({ propertiesForSale, propertiesForRent }) {
+  console.log(propertiesForSale);
+  console.log(propertiesForRent);
+
   return (
     <Layout>
       <Box>
@@ -22,7 +26,9 @@ export default function Home() {
           imageUrl="https://bayut-production.s3.eu-central-1.amazonaws.com/image/145426814/33973352624c48628e41f2ec460faba4"
         />
         <Flex flexWrap="wrap" justifyContent="center" alignItems="center">
-          <Text fontSize="3xl"> Properties for rent go here! </Text>
+          {propertiesForRent.map((property) => (
+            <Property property={property} key={property.id} />
+          ))}
         </Flex>
         <Banner
           purpose="BUY A HOME"
@@ -35,7 +41,9 @@ export default function Home() {
           imageUrl="https://bayut-production.s3.eu-central-1.amazonaws.com/image/145426814/33973352624c48628e41f2ec460faba4"
         />
         <Flex flexWrap="wrap" justifyContent="center" alignItems="center">
-          <Text fontSize="3xl"> Properties for sale go here! </Text>
+          {propertiesForSale.map((property) => (
+            <Property property={property} key={property.id} />
+          ))}
         </Flex>
       </Box>
     </Layout>
