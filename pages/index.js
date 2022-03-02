@@ -9,9 +9,6 @@ import Property from "../components/Property";
 import { baseUrl, fetchApi } from "../utils/fetchApi";
 
 export default function Home({ propertiesForSale, propertiesForRent }) {
-  console.log(propertiesForSale);
-  console.log(propertiesForRent);
-
   return (
     <Layout>
       <Box>
