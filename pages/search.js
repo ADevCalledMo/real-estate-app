@@ -17,6 +17,7 @@ const Search = ({ properties, bg }) => {
     <Layout>
       <Box>
         <Flex
+          onClick={() => setSearchFilters(!searchFilters)}
           cursor="pointer"
           bg={bg}
           borderBottom="1px"
@@ -26,7 +27,6 @@ const Search = ({ properties, bg }) => {
           fontSize="lg"
           justifyContent="center"
           alignItems="center"
-          onClick={() => setSearchFilters((prevFilters) => !prevFilters)}
         >
           <Text>Search Property By Filters</Text>
           <Icon paddingLeft="2" w="7" as={BsFilter} />
@@ -36,11 +36,24 @@ const Search = ({ properties, bg }) => {
         <Text fontSize="2xl" p="4" fontWeight="bold">
           Properties {router.query.purpose}
         </Text>
-        {/* <Flex flexWrap="wrap">
-        {properties.map((property) => (
-          <Property property={property} key={property.id} />
-        ))}
-      </Flex> */}
+        <Flex flexWrap="wrap">
+          {[].map((property) => (
+            <Property property={property} key={property.id} />
+          ))}
+        </Flex>
+        {[].length === 0 && (
+          <Flex
+            justifyContent="center"
+            alignItems="center"
+            flexDir="column"
+            marginTop="5"
+            marginBottom="5"
+          >
+            <Text fontSize="xl" marginTop="3">
+              No Result Found.
+            </Text>
+          </Flex>
+        )}
       </Box>
     </Layout>
   );
