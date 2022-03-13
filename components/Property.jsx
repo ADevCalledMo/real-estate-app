@@ -47,7 +47,11 @@ const Property = ({
             </Box>
             <Text fontWeight="bold" fontSize="lg">
               {" "}
-              AED {price}
+              AED{" "}
+              {millify(price, {
+                precision: 3,
+                lowercase: true,
+              })}
               {rentFrequency && `/${rentFrequency}`}
             </Text>
           </Flex>
