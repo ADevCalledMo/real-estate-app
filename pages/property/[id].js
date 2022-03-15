@@ -5,6 +5,7 @@ import { GoVerified } from "react-icons/go";
 import millify from "millify";
 
 import { baseUrl, fetchApi } from "../../utils/fetchApi";
+import ImageScrollbar from "../../components/ImageScrollbar";
 
 const PropertyDetails = ({
   propertyDetails: {
@@ -17,16 +18,17 @@ const PropertyDetails = ({
     agency,
     isVerified,
     description,
-    type, 
-    purpose, 
+    type,
+    purpose,
     furnishingStatus,
-    amenities, 
-    photos
+    amenities,
+    photos,
   },
-}) => <Box maxWidth="1000px" margin="auto" p="4">
-    {photos && <ImageScrollBar data={photos}/>}
-</Box>;
-
+}) => (
+  <Box maxWidth="1000px" margin="auto" p="4">
+    {photos && <ImageScrollbar data={photos} />}
+  </Box>
+);
 
 export default PropertyDetails;
 
