@@ -16,9 +16,15 @@ import DarkModeSwitch from "./DarkModeSwitch";
 
 const Navbar = ({ bg, textColor }) => (
   <Flex p="2" borderBottom="1px" borderColor="gray.100" backgroundColor={bg}>
-    <Box fontSize="3xl" color={textColor} fontWeight="bold">
+    <Box
+      fontFamily="Raleway"
+      fontSize="3xl"
+      color="purple.500"
+      fontWeight="bold"
+      letterSpacing="0.001em"
+    >
       <Link href="/" paddingLeft="2">
-        United Arab Emirates Real Estate
+        U.A.E REAL ESTATE
       </Link>
     </Box>
     <Spacer />
