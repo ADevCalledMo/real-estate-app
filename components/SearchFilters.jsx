@@ -16,7 +16,7 @@ import Image from "next/image";
 
 import { filterData, getFilterValues } from "../utils/filterData";
 
-const SearchFilters = () => {
+const SearchFilters = ({ bg }) => {
   const router = useRouter();
   const [filters, setFilters] = useState(filterData);
 
@@ -35,7 +35,7 @@ const SearchFilters = () => {
 
   return (
     // Once "search by Filters is clicked", renders the box of options to filter
-    <Flex bg="gray.100" p="4" justifyContent="center" flexWrap="wrap">
+    <Flex bg={bg} p="4" justifyContent="center" flexWrap="wrap">
       {filters.map((filter) => (
         <Box key={filter.queryName}>
           <Select

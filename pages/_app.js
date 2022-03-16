@@ -32,7 +32,7 @@ const GlobalStyle = ({ children }) => {
           }
           #__next {
             min-height: 100vh;
-            background: ${colorMode === "light" ? "white" : "#171717"};
+            background: ${colorMode === "light" ? "#FAF9F6" : "#171717"};
           }
         `}
       />

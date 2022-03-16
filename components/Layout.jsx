@@ -7,7 +7,7 @@ import Footer from "./Footer";
 const Layout = ({ children }) => {
   const { colorMode } = useColorMode();
   const bgColor = {
-    light: "white",
+    light: "#FAF9F6",
     dark: "#171717",
   };
 
@@ -18,7 +18,7 @@ const Layout = ({ children }) => {
 
   const color = {
     light: "black",
-    dark: "white",
+    dark: "#FAF9F6",
   };
 
   return (
