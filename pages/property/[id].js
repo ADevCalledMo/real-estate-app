@@ -6,7 +6,6 @@ import millify from "millify";
 
 import { baseUrl, fetchApi } from "../../utils/fetchApi";
 import ImageScrollbar from "../../components/ImageScrollbar";
-import Layout from "../../components/Layout";
 
 const PropertyDetails = ({
   propertyDetails: {
@@ -26,7 +25,7 @@ const PropertyDetails = ({
     photos,
   },
 }) => (
-  <Layout>
+
     <Box maxWidth="1000px" margin="auto" p="4">
       {photos && <ImageScrollbar data={photos} />}
       <Box w="full" p="6">
@@ -121,7 +120,6 @@ const PropertyDetails = ({
         </Flex>
       </Box>
     </Box>
-  </Layout>
 );
 
 export default PropertyDetails;

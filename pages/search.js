@@ -5,7 +5,6 @@ import { Flex, Box, Text, Icon } from "@chakra-ui/react";
 import { BsFilter } from "react-icons/bs";
 
 import SearchFilters from "../components/SearchFilters";
-import Layout from "../components/Layout";
 import noresult from "../assets/images/noresult.svg";
 
 import Property from "../components/Property";
@@ -16,49 +15,47 @@ const Search = ({ properties, bg }) => {
   const router = useRouter();
 
   return (
-    <Layout>
-      <Box>
+    <Box>
+      <Flex
+        onClick={() => setSearchFilters(!searchFilters)}
+        cursor="pointer"
+        bg={bg}
+        borderBottom="1px"
+        borderColor="gray.200"
+        p="2"
+        fontWeight="black"
+        fontSize="lg"
+        justifyContent="center"
+        alignItems="center"
+      >
+        <Text>Search Property By Filters</Text>
+        <Icon paddingLeft="2" w="7" as={BsFilter} />
+      </Flex>
+      {searchFilters && <SearchFilters />}
+
+      <Text fontSize="2xl" p="4" fontWeight="bold">
+        Properties {router.query.purpose}
+      </Text>
+      <Flex flexWrap="wrap">
+        {properties.map((property) => (
+          <Property property={property} key={property.id} />
+        ))}
+      </Flex>
+      {properties.length === 0 && (
         <Flex
-          onClick={() => setSearchFilters(!searchFilters)}
-          cursor="pointer"
-          bg={bg}
-          borderBottom="1px"
-          borderColor="gray.200"
-          p="2"
-          fontWeight="black"
-          fontSize="lg"
           justifyContent="center"
           alignItems="center"
+          flexDir="column"
+          marginTop="5"
+          marginBottom="5"
         >
-          <Text>Search Property By Filters</Text>
-          <Icon paddingLeft="2" w="7" as={BsFilter} />
+          <Image src={noresult} alt="no result" />
+          <Text fontSize="xl" marginTop="3">
+            No Results Found.
+          </Text>
         </Flex>
-        {searchFilters && <SearchFilters />}
-
-        <Text fontSize="2xl" p="4" fontWeight="bold">
-          Properties {router.query.purpose}
-        </Text>
-        <Flex flexWrap="wrap">
-          {properties.map((property) => (
-            <Property property={property} key={property.id} />
-          ))}
-        </Flex>
-        {properties.length === 0 && (
-          <Flex
-            justifyContent="center"
-            alignItems="center"
-            flexDir="column"
-            marginTop="5"
-            marginBottom="5"
-          >
-            <Image src={noresult} alt="no result" />
-            <Text fontSize="xl" marginTop="3">
-              No Results Found.
-            </Text>
-          </Flex>
-        )}
-      </Box>
-    </Layout>
+      )}
+    </Box>
   );
 };
 
