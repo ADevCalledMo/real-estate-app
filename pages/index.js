@@ -56,7 +56,7 @@ export async function getStaticProps() {
     props: {
       propertiesForSale: propertyForSale?.hits,
       propertiesForRent: propertyForRent?.hits,
-      fallback: true,
+      fallback: false,
     },
   };
 }
