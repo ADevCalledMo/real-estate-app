@@ -25,6 +25,7 @@ const Search = ({ properties, bg }) => {
         p="2"
         fontWeight="black"
         fontSize="lg"
+        marginTop="10"
         justifyContent="center"
         alignItems="center"
       >

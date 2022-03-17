@@ -27,7 +27,10 @@ const SearchFilters = ({ bg }) => {
     const values = getFilterValues(filterValues);
 
     values.forEach((item) => {
-      query[item.name] = item.value;
+      if (item.value && filterValues?.[item.name]) {
+        query[item.name] = item.value;
+      }
+      // Above line of code is to prevent the filters being cleared when selecting another filter
     });
 
     router.push({ pathname: path, query });
